@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol PDFThumbnailViewControllerDelegate {
+public protocol PDFThumbnailViewControllerDelegate: AnyObject {
     func thumbnailCollection(_ collection: PDFThumbnailViewController, didSelect page: Int)
 }
 
@@ -26,7 +26,7 @@ open class PDFThumbnailViewController: UIViewController {
         return layout
     }
     
-    public var delegate: PDFThumbnailViewControllerDelegate?
+    public weak var delegate: PDFThumbnailViewControllerDelegate?
 
     public init(document: PDFDocument) {
         super.init(nibName: nil, bundle: nil)

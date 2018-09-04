@@ -50,7 +50,7 @@ public protocol PDFAnnotationButtonable: PDFAnnotation {
     static var buttonImage: UIImage? { get }
 }
 
-public protocol PDFAnnotationEvent {
+public protocol PDFAnnotationEvent: AnyObject {
     func annotationUpdated(annotation: PDFAnnotation)
     func annotation(annotation: PDFAnnotation, selected action: String)
 }

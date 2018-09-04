@@ -9,7 +9,7 @@
 import UIKit
 
 
-public protocol PDFAnnotationStoreDelegate {
+public protocol PDFAnnotationStoreDelegate: AnyObject {
 
     func annotationStore(store: PDFAnnotationStore, addedAnnotation: PDFAnnotation)
     func annotationStore(store: PDFAnnotationStore, removedAnnotation: PDFAnnotation)
@@ -18,7 +18,7 @@ public protocol PDFAnnotationStoreDelegate {
 open class PDFAnnotationStore: NSObject, NSCoding {
 
     var annotations: [PDFAnnotation] = []
-    var delegate: PDFAnnotationStoreDelegate?
+    weak var delegate: PDFAnnotationStoreDelegate?
 
 
     func add(annotation: PDFAnnotation) {

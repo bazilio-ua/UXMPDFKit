@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol PDFPageScrubberDelegate {
+public protocol PDFPageScrubberDelegate: AnyObject {
     func scrubber(_ scrubber: PDFPageScrubber, selectedPage: Int)
 }
 
@@ -16,7 +16,7 @@ open class PDFPageScrubber: UIToolbar {
     let document: PDFDocument
     var scrubber = PDFPageScrubberTrackControl()
     
-    open var scrubberDelegate: PDFPageScrubberDelegate?
+    open weak var scrubberDelegate: PDFPageScrubberDelegate?
     let thumbBackgroundColor = UIColor.white.withAlphaComponent(0.7)
     
     let thumbSmallGap: CGFloat = 2.0

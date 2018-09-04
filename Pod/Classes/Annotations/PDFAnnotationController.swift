@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol PDFAnnotationControllerProtocol {
+public protocol PDFAnnotationControllerProtocol: AnyObject {
     func annotationWillStart(touch: UITouch) -> Int?
 }
 
@@ -40,7 +40,7 @@ open class PDFAnnotationController: UIViewController {
     var buttons: [PDFBarButton] = []
     
     /// Delegate reference for annotation events
-    var annotationDelegate: PDFAnnotationControllerProtocol?
+    weak var annotationDelegate: PDFAnnotationControllerProtocol?
     
     /// Current annotation
     open var currentAnnotation: PDFAnnotation?

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol PDFSinglePageViewerDelegate {
+public protocol PDFSinglePageViewerDelegate: AnyObject {
     func singlePageViewer(_ collectionView: PDFSinglePageViewer, didDisplayPage page: Int)
     func singlePageViewer(_ collectionView: PDFSinglePageViewer, loadedContent content: PDFPageContentView)
     func singlePageViewer(_ collectionView: PDFSinglePageViewer, selected action: PDFAction)
@@ -27,7 +27,7 @@ open class PDFSinglePageFlowLayout: UICollectionViewFlowLayout {
 
 open class PDFSinglePageViewer: UICollectionView {
 
-    open var singlePageDelegate: PDFSinglePageViewerDelegate?
+    open weak var singlePageDelegate: PDFSinglePageViewerDelegate?
     open var document: PDFDocument?
 
     var internalPage: Int = 0

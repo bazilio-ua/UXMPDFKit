@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol PDFPageContentViewDelegate {
+public protocol PDFPageContentViewDelegate: AnyObject {
     func contentView(_ contentView: PDFPageContentView, didSelect action: PDFAction)
     func contentView(_ contentView: PDFPageContentView, didSelect annotation: PDFAnnotationView)
     func contentView(_ contentView: PDFPageContentView, tapped recognizer: UITapGestureRecognizer)
@@ -20,7 +20,7 @@ open class PDFPageContentView: UIScrollView, UIScrollViewDelegate {
     let containerView: UIView
 
     open var page: Int
-    open var contentDelegate: PDFPageContentViewDelegate?
+    open weak var contentDelegate: PDFPageContentViewDelegate?
     open var viewDidZoom: ((CGFloat) -> Void)?
     fileprivate var PDFPageContentViewContext = 0
     fileprivate var previousScale: CGFloat = 1.0

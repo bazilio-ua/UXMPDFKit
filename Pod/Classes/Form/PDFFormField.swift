@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PDFFormViewDelegate {
+protocol PDFFormViewDelegate: AnyObject {
     func formFieldValueChanged(_ widget: PDFFormField)
     func formFieldEntered(_ widget: PDFFormField)
     func formFieldOptionsChanged(_ widget: PDFFormField)
@@ -162,7 +162,7 @@ open class PDFFormField: UIView {
         }
     }
     
-    var delegate: PDFFormViewDelegate?
+    weak var delegate: PDFFormViewDelegate?
     
     override init(frame: CGRect) {
         self.baseFrame = frame
